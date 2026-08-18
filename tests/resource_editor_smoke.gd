@@ -43,6 +43,7 @@ func _run_smoke() -> void:
 	var editor := ResourceEditorScript.new()
 	get_root().add_child(editor)
 	await process_frame
+	editor._open_workspace(ProjectSettings.globalize_path("res://"))
 	editor._create_new_resource()
 	assert(editor.current_resource is TestResource)
 	assert(editor.field_infos.size() == 8)
