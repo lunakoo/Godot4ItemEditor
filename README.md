@@ -1,95 +1,28 @@
-# Godot Resource Editor Tool
+# Project Horn Data Editor
 
-A simple yet powerful resource editor tool for Godot 4, designed to help game designers create and manage resource (.tres) files without coding knowledge. This tool streamlines the workflow between designers and developers by providing a user-friendly interface for resource creation.
+Godot 4용 범용 Resource 편집기입니다. 게임 프로젝트의 실제 데이터 스키마와 분리된 테스트용 Resource를 기준으로 `.tres`와 `.res` 파일을 편집합니다.
 
-## Screenshots
+## 기능
 
-### Main Editor Interface
-![Main Editor Interface](screenshots/main_editor_v1.1.0.png)
+- 한글 UI
+- 외부 작업 폴더 선택
+- 하위 폴더까지 Resource 재귀 검색
+- 파일명·상대 경로 검색
+- New, Load, Save, Save As, Duplicate, Delete
+- Save / Discard / Cancel 기반 Dirty State 처리
+- `get_property_list()` 기반 Inspector 자동 생성
+- String, int, float, bool, enum, Texture2D, PackedScene, Resource 필드 지원
+- 타입·로드·저장 오류와 빈 문자열 검증
 
-## Features
+## 실행
 
-- Create, load, and manage game resource files (.tres)
-- User-friendly interface for non-technical team members
-- Support for basic resource properties:
-  - Item name
-  - Item description
-  - Item power value
-  - Item image (supports PNG, JPG, JPEG)
-- Clear visual feedback with image preview
-- Automatic file handling and organization
-- Works directly in the game's executable directory
+1. Godot 4.3에서 프로젝트를 엽니다.
+2. `ResourceEditor.tscn`을 실행합니다.
+3. `폴더 열기`로 Resource 파일이 있는 작업 폴더를 선택합니다.
+4. `테스트 리소스`를 선택하고 `새로 만들기`로 편집을 시작합니다.
 
-## Installation
+## 범위
 
-1. Clone this repository:
-	```bash
-	git clone https://github.com/[your-username]/godot-resource-editor
-	```
+현재 등록된 Resource 타입은 `TestResource` 하나입니다. Project Horn의 HeroData, MonsterData, SkillData 스키마와 기존 Item 전용 구조는 포함하지 않습니다.
 
-2. Open the project in Godot 4
-3. Run the editor scene
-4. Export the project if you want to distribute it to your team
-
-## Usage
-
-1. **Creating a New Resource**
-   - Fill in the item details (name, description, power)
-   - Optionally add an image using the image selection button
-   - Click "Save" and choose a location for your .tres file
-
-2. **Loading Existing Resources**
-   - Click "Load" and select an existing .tres file
-   - The tool will populate all fields with the saved data
-
-3. **Deleting Resources**
-   - Click "Delete" and select the .tres file you want to remove
-   - Confirm the deletion
-
-## Project Structure
-res/
-- ItemEditor.tscn
-- item_editor.gd
-- item_resource.gd
-- README.md
-
-## Future Plans
-
-- [ ] Support for multiple resource types
-- [ ] Batch processing capabilities
-- [ ] Custom field type definitions
-- [ ] Resource preview system
-- [ ] Template system for quick resource creation
-- [ ] Search and filter functionality
-- [ ] Resource dependency management
-- [ ] Export/Import functionality for different formats
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Credits
-
-Developed by [Your Name]
-
-## Support
-
-If you encounter any problems or have suggestions, please open an issue on the GitHub repository.
-
-## Version History
-
-- v1.0.0 (Current)
-  - Initial release
-  - Basic resource editing functionality
-  - Image support
-  - Save/Load/Delete operations
+외부 게임 프로젝트를 마운트하거나 해당 프로젝트의 `res://` 의존성을 해석하지 않습니다.
